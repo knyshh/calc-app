@@ -1,0 +1,894 @@
+/* Helper class
+------------------------------------------------------------------------------- */
+.m-right{
+  float: right;
+}
+
+.m-left{
+  float: left;
+}
+.text-right{
+  text-align: right;
+}
+.text-left {
+  text-align: left;
+}
+.text-center {
+  text-align: center;
+}
+.p0{
+  @media only screen and (min-width: 1023px) {
+    padding: 0;
+  }
+}
+.m0{
+  margin: 0;
+}
+.p10 {
+  padding-top: 10px;
+}
+.col-50 {
+  width: 50%;
+}
+
+
+/* Layout blocks
+------------------------------------------------------------------------------- */
+body {
+  position: relative;
+  width: 100%;
+  background: $main-bg;
+  line-height: 1.4;
+  overflow-x: hidden;
+}
+
+html {
+
+}
+a,button{
+  @include transition($gTransition);
+}
+.inline-b {
+  display: inline-block;
+  width: 100%;
+}
+
+/* Main content
+------------------------------------------------------------------------------- */
+.header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+.coast {
+  position: absolute;
+  right: 60px;
+  top: 40px;
+  width: 120px;
+  text-align: right;
+  letter-spacing: 0.8px;
+  color: #737882;
+  text-transform: uppercase;
+  font-size: 12px;
+
+  @media only screen and (max-width: 768px) {
+    right: 20px;
+    top: 10px;
+  }
+
+  &--sticky {
+    position: fixed;
+    top: 10px;
+    z-index: 200;
+    right: 60px;
+    transform: translateY(-60px);
+    transition: all 1s ease;
+
+    @media only screen and (max-width: 480px) {
+      right: 15px;
+      top: 10px;
+    }
+  }
+
+  &__txt {
+    color: $coral-price;
+    font-size: 28px;
+    display: block;
+    width: 100%;
+    @media only screen and (max-width: 768px) {
+      font-size: 16px;
+    }
+    &--sticky {
+      font-size: 16px;
+    }
+  }
+}
+.logo-sticky {
+  display: none;
+  position: fixed;
+  top: 10px;
+  left: 60px;
+  background: url('http://frontendgirl.com.ua/calculator-app/public/img/logo_scroll_mob-compressor.svg');
+  width: 130px;
+  height: 36px;
+  transform: translateY(-60px);
+  transition: all  1s ease;
+  z-index: 200;
+
+  @media only screen and (max-width: 480px) {
+    top: 10px;
+    left: 10px;
+  }
+}
+
+.logo {
+  display: inline-block;
+  background: url('http://frontendgirl.com.ua/calculator-app/public/img/logo_first.svg');
+  width: 178px;
+  height: 50px;
+  margin-top: 40px;
+  margin-left: 60px;
+
+  @media only screen and (max-width: 768px) {
+    width: 130px;
+    height: 36px;
+    margin-top: 10px;
+    margin-left: 20px;
+    background: url('http://frontendgirl.com.ua/calculator-app/public/img/logo_scroll_mob-compressor.svg');
+  }
+
+
+  a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+  }
+}
+.btn {
+  font-size: 18px;
+  font-weight: 400;
+  border-radius: 8px;
+  text-align: center;
+  color: #fff;
+  a {
+    color: #fff;
+    &:hover {
+      color: #fff;
+    }
+  }
+  &:focus {
+    color: #fff;
+    text-decoration: none;
+  }
+  &:hover {
+    color: #fff;
+  }
+  &--gocalculate {
+    background-color: $btn-coral;
+    padding: 16px 33px;
+    margin-top: 82px;
+
+    &:hover {
+      background-color: darken($btn-coral,10%);
+      color: #fff;
+    }
+  }
+  &--getdetails {
+    padding: 18px 17px 16px 17px;
+    background-color: $btn-details;
+    min-width: 220px;
+    text-align: center;
+    margin-top: 40px;
+    &:hover {
+      background-color: darken($btn-details,15%);
+      color: #fff;
+    }
+  }
+  &.btn-default {
+
+    &:hover {
+    }
+  }
+
+  &--submit {
+    height: 60px;
+    background-color:$coral;
+    border-radius: 8px;
+    width: 100%;
+    color: #fff;
+
+    &:hover {
+      background-color: darken($coral,15%);
+      color: #fff;
+    }
+  }
+}
+.grapth {
+  display: block;
+  margin: 0 auto;
+  background: url('http://frontendgirl.com.ua/calculator-app/public/img/graph.png') 0 0 no-repeat;
+  background-size: cover;
+  width: 879px;
+  min-height: 791px;
+  margin-top: 54px;
+
+  @media only screen and (max-width: 879px) {
+    max-width: 100%;
+    min-height: 714px;
+    background: url('http://frontendgirl.com.ua/calculator-app/public/img/graph.png') center 80px no-repeat;
+    background-size: contain;
+  }
+
+  @media only screen and (max-width: 480px) {
+    min-height: 514px;
+  }
+}
+/*for retina */
+.normal-img {
+  display: inline;
+  @media only screen and (-webkit-min-device-pixel-ratio: 1.5),
+  only screen and (min-resolution: 144dpi) and (min-width: 1023px) {
+    display: none;
+  }
+}
+.retina-img{
+  display: none;
+  @media only screen and (-webkit-min-device-pixel-ratio: 1.5),
+  only screen and (min-resolution: 144dpi) and (min-width: 1023px) {
+    display: block;
+  }
+}
+
+.calculator-header {
+  width: 100%;
+  display: inline-block;
+  @media only screen and (min-width: 1023px) {
+    height: 900px;
+  }
+  background-color: #262626;
+  padding-bottom: 50px;
+  .container {
+    position: relative;
+  }
+  &__containertxt {
+    position: absolute;
+    top: 180px;
+    padding-right: 30px;
+    text-align: center;
+
+    @media only screen and (min-width: 1024px) {
+      text-align: left;
+      top: 280px;
+    }
+  }
+  &__title {
+    font-family: $fontRoboto;
+    font-size: 52px;
+    font-weight: 400;
+    color: white;
+    width: 100%;
+    text-align: right;
+    padding-bottom: 8px;
+
+    @media only screen and (max-width: 1023px) {
+      text-align: center;
+    }
+    @media only screen and (min-width: 480px) {
+      font-size: 72px;
+    }
+  }
+  &__subtitle {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 18px;
+    font-weight: 400;
+    text-align: center;
+
+    @media only screen and (min-width: 1024px) {
+      text-align: right;
+      padding-left: 50px;
+    }
+  }
+  &__img {
+    display: none;
+    position: absolute;
+    right: -10px;
+    top: 108px;
+    &.retina-img {
+      max-width: 410px;
+      @media only screen and (max-width: 410px) {
+        max-width: 100%;
+      }
+    }
+
+    @media only screen and (min-width: 1023px) {
+      display: block;
+    }
+  }
+
+}
+
+.calculator {
+  background-color: #f2f2f3;
+  padding-top: 100px;
+  @media only screen and (min-width: 480px) {
+    padding-top: 200px;
+  }
+  &__title {
+    font-family: $fontRoboto;
+    font-size: 30px;
+    font-weight: 300;
+    color: $default-h-color;
+    padding-bottom: 15px;
+    transform: translateY(10px);
+    transition: all 1s ease-out;
+
+    @media only screen and (min-width: 480px) {
+      font-size: 40px;
+    }
+
+
+   // opacity: 0;
+  }
+  &__subtitle {
+    color: $subtitle-color;
+    font-size: 18px;
+
+    transform: translateY(10px);
+    transition: all 1s ease-out 0.1s;
+    //opacity: 0;
+  }
+  &__containertxt {
+    @media only screen and (min-width: 1024px) {
+      padding-top: 150px;
+    }
+  }
+}
+
+.question-list {
+  padding-top: 90px;
+  @media only screen and (min-width: 480px) {
+    padding-top: 130px;
+  }
+
+}
+.question {
+  margin-bottom: 80px;
+  transition: all 1.15s ease-out;
+
+  @media only screen and (min-width: 1023px) {
+    transform: translateY(20px);
+    opacity: 0;
+    margin-bottom: 120px;
+  }
+
+  &__text {
+    font-size: 18px;
+    margin-left: 20px;
+    @media only screen and (min-width: 1023px) {
+      margin-left: 0;
+      padding-right: 75px;
+    }
+
+  }
+}
+
+.question-item{
+  transition: $gTransition;
+  display: flex;
+  width: 100%;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  padding-top: 20px;
+
+  @media only screen and (min-width: 1023px) {
+    padding-top: 0;
+    margin-right: -20px;
+    margin-left: -20px;
+  }
+
+  &__radio {
+    opacity: 0;
+  }
+  &__checkbox {
+    opacity: 0;
+  }
+  &__title {
+    font-family: $fontRoboto;
+    font-size: 14px;
+    font-weight: 700;
+  }
+  &__subtitle {
+    font-family: $fontRoboto;
+    font-size: 12px;
+    font-weight: 400;
+    position: absolute;
+    bottom: 19px;
+    left: 19px;
+    padding-right: 20px;
+  }
+  &__label {
+    &:first-child {
+      margin-left: 10px;
+      @media only screen and (min-width: 768px) {
+        margin-left: 20px;
+      }
+      @media only screen and (min-width: 1023px) {
+        margin-left: 10px;
+      }
+    }
+    @media only screen and (min-width: 768px) {
+      &:nth-child(3n+1) {
+        margin-left: 10px;
+      }
+    }
+    @media only screen and (min-width: 1023px) {
+      &:nth-child(4n+1) {
+        margin-left: 10px;
+      }
+    }
+    margin-left: 10px;
+    @media only screen and (min-width: 768px) {
+      margin-left: 20px;
+    }
+    margin-bottom: 20px;
+    position: relative;
+    width: 140px;
+    height: 140px;
+    border-radius: 20px;
+    padding: 20px;
+    background-color: transparent;
+    border: 2px solid rgba(0, 0, 0, 0.8);
+    transition: $gTransition;
+    &.active {
+      background-color: $green;
+      border: 2px solid $green;
+    }
+    &:hover {
+      border: 2px solid  $green;
+    }
+  }
+}
+.get-details {
+  //min-height: 900px;
+  background: #fff;
+  text-align: center;
+  min-height: 600px;
+  @media only screen and (min-width: 1023px) {
+    min-height: 900px;
+    text-align: left;
+  }
+  .container {
+    position: relative;
+  }
+  &__title {
+    font-family: $fontRoboto;
+    font-size: 40px;
+    font-weight: 300;
+    padding-bottom: 20px;
+  }
+  &__subtitle {
+    color: $subtitle-color;
+    font-size: 18px;
+    padding-bottom: 60px;
+    padding-right: 20px;
+  }
+  &__img {
+    display: block;
+    margin: 0 auto;
+    background: url('http://frontendgirl.com.ua/calculator-app/public/img/graph_2.png') center 0 no-repeat;
+    background-size: cover;
+    width: 100%;
+    min-height: 320px;
+    margin-top: 80px;
+
+    @media only screen and (min-width: 480px) {
+      min-height: 480px;
+    }
+
+    @media only screen and (min-width: 768px) {
+      min-height: 680px;
+    }
+
+    @media only screen and (min-width: 880px) {
+      width: 880px;
+      min-height: 797px;
+    }
+
+
+    @media only screen and (min-width: 1023px) {
+      width: 880px;
+      min-height: 797px;
+      background: url('http://frontendgirl.com.ua/calculator-app/public/img/graph_2.png') 0 0 no-repeat;
+      background-size: cover;
+    }
+  }
+  &__contenttxt {
+    position: absolute;
+    left: 0;
+    top: 120px;
+    @media only screen and (min-width: 768px) {
+      top: 250px;
+    }
+
+    @media only screen and (min-width: 1023px) {
+      top: 320px;
+    }
+
+
+  }
+}
+.final-coast {
+  font-family: $fontRoboto;
+  font-size: 72px;
+  font-weight: 400;
+  color: $coral-price;
+}
+.wrap-calculator {
+  position: relative;
+  //padding: 0 60px;
+  //background: #fff;
+  max-width: 100%;
+  margin: auto;
+  overflow: hidden;
+  background: #fff;
+}
+.top-calculator {
+ // position: fixed;
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  width: 100%;
+  margin: auto;
+  height: 60px;
+  //display: none;
+ // background: #fff;
+  background:  #f2f2f3;
+
+}
+//.bottom-calculator {
+//  position: fixed;
+//  right: 0;
+//  bottom: 0;
+//  left: 0;
+//  width: 100%;
+//  margin: auto;
+//  height: 60px;
+//  z-index: 999;
+// // background: #fff;
+//  background: #f2f2f3;
+//}
+.contactus {
+  padding: 100px 0;
+  width: 100%;
+
+  @media only screen and (min-width: 1024px) {
+    padding: 200px 0;
+  }
+  &__form {
+    width: 300px;
+    margin: 0 auto;
+  }
+  &__title {
+    font-family: $fontRoboto;
+    font-size: 40px;
+    text-align: center;
+    padding-bottom: 20px;
+  }
+  &__subtitle {
+    color: $subtitle-color;
+    font-size: 18px;
+    text-align: center;
+    padding-bottom: 60px;
+  }
+  &__label {
+    margin-bottom: 21px;
+    position: relative;
+  }
+  &__input {
+    width: 100%;
+  }
+  &__textarea {
+    height: 120px;
+    padding: 16px
+  }
+}
+label.error,
+.error-msg {
+  position: absolute;
+  color: $coral;
+  left: 0;
+  top: 105%;
+  font-size: 11px;
+  font-family: "Poppins", sans-serif;
+
+}
+
+.iti-flag {background-image: url("http://frontendgirl.com.ua/calculator-app/public/img/flags.png")}
+.intl-tel-input {
+  width: 100%;
+}
+.hide {
+  display: none;
+}
+
+.loader__line-left,
+.loader__line-right {
+ // position: absolute;
+  position: fixed;
+  width: 60px;
+  z-index: 2;
+  display: none;
+  @media only screen and (min-width: 1024px) {
+    display: block;
+  }
+}
+.loader__line-left {
+  height: 0;
+  left: 0;
+  bottom: 0;
+  background: #fff;
+}
+.loader__line-right {
+  background: #fff;
+  right: 0;
+  height: 0;
+  top: 0;
+}
+.loader__line-bottom {
+   margin: auto;
+   background: #fff;
+   position: fixed;
+   bottom: 0;
+   width: 0;
+  right: 0;
+   height: 60px;
+   z-index: 99;
+ }
+
+.loader__line-top {
+  margin: auto;
+  top: 0;
+  background: #fff;
+  position: fixed;
+  left: 0;
+  width: 0;
+  height: 60px;
+  z-index: 100;
+}
+
+.loader__sticker {
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+  margin: auto;
+  background: $light-gray;
+  position: absolute;
+}
+.wrap-calculator {
+
+  .loader__line-bottom,
+  .loader__line-top,
+  .loader__line-right ,
+  .loader__line-left,
+  .loader__sticker,
+  .footer,
+  .logo-sticky,
+  .coast--sticky,
+  .aside-navigation {
+    display: none;
+  }
+  &.is-active {
+
+    .loader__line-top,
+    .footer,
+    .logo-sticky,
+    .coast--sticky {
+      display: block;
+    }
+
+    @media only screen and (max-width: 1023px) {
+      .logo-sticky,
+      .coast--sticky,
+      .loader__line-top {
+        transform: translateY(0px);
+      }
+      .loader__line-top {
+        width: 100%;
+      }
+
+    }
+    .loader__line-bottom,
+    .loader__line-right ,
+    .loader__line-left,
+    .loader__sticker,
+    .aside-navigation{
+      display: block;
+     // display: none;
+      @media only screen and (min-width: 1024px) {
+        //display: block;
+      }
+    }
+    @media only screen and (max-width: 1023px) {
+      .loader__line-right ,
+      .loader__line-left,
+      .loader__sticker,
+      .loader__line-bottom,
+      .section-name,
+      .aside-navigation {
+        display: none;
+      }
+    }
+  }
+
+
+}
+.footer-text {
+  color: $subtitle-color;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  font-size: 12px;
+}
+.footer {
+  width: 100%;
+
+  bottom: 0;
+
+  background: transparent;
+  z-index: 100;
+  padding: 22px 20px 20px 20px;
+  transition: all  2s ease;
+  bottom: 1px;
+  text-align: center;
+
+  @media only screen and (min-width: 1023px) {
+    text-align: left;
+    position: fixed;
+    height: 60px;
+  }
+  @media only screen and (min-width: 1023px) {
+    transform: translateY(60px);
+    opacity: 0;
+    padding: 22px 80px 20px 80px;
+  }
+  &__terms {
+    padding-top: 20px;
+    @extend .footer-text;
+    padding-top: 20px;
+    @media only screen and (min-width: 1023px) {
+      padding-top: 0;
+      float: right;
+    }
+  }
+
+}
+
+.footer-nav {
+  display: inline-block;
+  @media only screen and (max-width: 1023px) {
+    width: 100%;
+  }
+
+  &__item {
+    display: block;
+    position: relative;
+    padding-bottom: 10px;
+    @media only screen and (min-width: 480px) {
+      padding-bottom: 0;
+      display: inline-block;
+      padding-right: 69px;
+    }
+
+
+    &:last-child {
+      padding-right: 0;
+      .footer-nav__href:after {
+        display: none;
+      }
+    }
+  }
+  &__href {
+    @extend .footer-text;
+    position: relative;
+    &:hover {
+      color: $subtitle-color;
+    }
+    &:after {
+
+      @media only screen and (min-width: 480px) {
+        position: absolute;
+        right: -38px;
+        height: 15px;
+        width: 1px;
+        background: $coral;
+        content: "";
+        top: 2px;
+      }
+    }
+  }
+}
+.section-name {
+  position: fixed;
+  left: -31px;
+  top: 50%;
+  margin-top: -60px;
+  opacity: 0;
+  z-index: 200;
+  color: rgba(0, 0, 0, 0.3);
+  font-size: 13px;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  line-height: 16px;
+  //width: 60px;
+  width: 120px;
+  transform:  translateX(-100px) rotate(-90deg);
+  transition: all  2s ease;
+  text-align: center;
+  &__item {
+    display: none;
+    &.active {
+      display: block;
+    }
+  }
+}
+.aside-navigation {
+  position: fixed;
+  right: 25px;
+  top: 50%;
+  margin-top: -45px;
+  font-size: 13px;
+  opacity: 0;
+  z-index: 200;
+  @media only screen and (min-width: 1023px) {
+    //right:25px;
+  }
+
+  &__item {
+    cursor: pointer;
+    position: relative;
+  }
+  &__href {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.2);
+    &.active {
+      width: 10px;
+      height: 10px;
+      background: $coral;
+      position: relative;
+      left: -1px;
+    }
+  }
+}
+
+//transform: translateY(-60px);
+//transition: all  0.75s ease;
+
+.fade-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+.fade-in-x {
+  opacity: 1;
+  transform: translateX(0) rotate(-90deg);
+}
+/*--- footer ------------------------------------------------------------------ */
+@media only screen and (max-width: 1170px) {
+}
+
+@media only screen and (max-width: 992px) {
+
+}
+@media only screen and (max-width: 767px) {
+
+}
+@media only screen and (max-width: 480px) {
+
+}
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+
+}

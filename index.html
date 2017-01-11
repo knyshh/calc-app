@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <meta name="description" content=""/>
+    <meta name="keywords" content=""/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui">
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700" rel="stylesheet">
+    <link rel="stylesheet" href="public/css/bootstrap.css">
+    <link rel="stylesheet" href="public/css/intlTelInput.css">
+    <link href="./public/css/style.css" rel="stylesheet">
+</head>
+<body>
+    <section class="calculator-header">
+        <header class="header">
+            <div class="logo"><a href="#"></a></div>
+
+            <div class="coast">
+                <span class="coast__txt">$0</span>
+                Estimated cost
+            </div>
+
+        </header>
+
+        <div class="container">
+
+            <div class="grapth"></div>
+
+            <img class="calculator-header__img normal-img" src="./public/img/screens.png">
+            <img class="calculator-header__img retina-img" src="./public/img/screens@2x.png">
+
+            <div class="col-md-5 col-md-offset-2 col-sm-12 col-xs-12 calculator-header__containertxt">
+                <h1 class="calculator-header__title">APPraisal</h1>
+                <p class="calculator-header__subtitle">is here to help you estimate the cost  of your app idea and get the further roadmap of the development process.</p>
+                <a class="btn--gocalculate btn" href="#">Find out the Price</a>
+            </div>
+        </div>
+
+    </section><!-- /calculator-header-->
+
+    <div class="wrap-calculator">
+        <!--<div class="top-calculator"></div>-->
+        <!--<div class="bottom-calculator"></div>-->
+        <div class="loader__line-left loader__line-left--animated"></div>
+        <div class="loader__line-right loader__line-right--animated"></div>
+
+        <div class="loader__line-top loader__line-left--animated"></div>
+        <div class="loader__line-bottom loader__line-right--animated"></div>
+
+        <div class="logo-sticky"><a href="#"></a></div>
+
+        <div class="coast coast--sticky">
+            <span class="coast__txt coast__txt--sticky">$0</span>
+            Estimated cost
+        </div>
+        <!--<div class="loader__sticker"></div>-->
+
+        <div class="section-name">
+
+            <span class="section-name__item active general" data-item="general">General</span>
+            <span class="section-name__item design" data-item="design">design</span>
+            <span class="section-name__item features"  data-item="features">Features</span>
+            <span class="section-name__item estimate"  data-item="estimate">Estimation</span>
+            <span class="section-name__item contactform"  data-item="contactform">Contact form</span>
+
+        </div>
+        
+        <nav class="aside-navigation">
+            <ul>
+                <li class="aside-navigation__item" data-section="general">
+                    <a class="aside-navigation__href  general active" href="#"></a>
+                </li>
+                <li class="aside-navigation__item " data-section="design">
+                    <a class="aside-navigation__href design" href="#"></a>
+                </li>
+                <li class="aside-navigation__item " data-section="features">
+                    <a class="aside-navigation__href features" href="#"></a>
+                </li>
+                <li class="aside-navigation__item " data-section="estimate">
+                    <a class="aside-navigation__href estimate" href="#"></a>
+                </li>
+                <li class="aside-navigation__item " data-section="contactform">
+                    <a class="aside-navigation__href contactform" href="#"></a>
+                </li>
+            </ul>
+        </nav>
+
+        <section class="calculator">
+            <div class="container calculator__containertxt">
+                <div class="col-md-6 col-md-offset-2">
+                    <h3 class="calculator__title">Find out the price  for your app development!</h3>
+                    <p class="calculator__subtitle">Answer the questionnaire to estimate the app idea, see the price of your future app and get started with the development.</p>
+                </div>
+            </div>
+            <form role="form" id="form"
+                  name="form"
+                  method="post">
+                  <!--path="{{ path('api.planner.submit') }}"-->
+
+                <div class="question-list">
+
+                    <div class="container">
+
+                        <div class="question row" data-question="general">
+                            <div class="col-md-4 col-xs-12  col-sm-4 ">
+                                <p class="question__text">What platform?</p>
+                            </div>
+
+                            <div class="col-md-8 col-sm-8 p0 col-xs-12 ">
+
+                                <div class="question-item">
+
+                                    <label class="question-item__label">
+                                        <span class="question-item__title">iOS</span>
+                                        <input type="radio" name="platform" value="iOS" class="question-item__radio" required>
+                                        <!--<span class="question-item__subtitle">You`ve got only app concept</span>-->
+                                    </label>
+
+                                    <label class="question-item__label">
+                                        <span class="question-item__title">Android</span>
+                                        <input type="radio" name="platform" value="Android" class="question-item__radio" required>
+                                    </label>
+
+                                    <label class="question-item__label">
+                                        <span class="question-item__title">Both</span>
+                                        <input type="radio" name="platform" value="Android" class="question-item__radio" required>
+                                    </label>
+
+                                </div> <!-- /question-item -->
+
+                            </div>
+                        </div><!-- /question-row -->
+
+                        <div class="question row" data-question="general">
+
+                            <div class="col-md-4 col-xs-12  col-sm-4 ">
+                                <p class="question__text">What is your app about?</p>
+                            </div>
+
+                            <div class="col-md-8 col-sm-8 p0 col-xs-12 ">
+
+                                <div class="question-item">
+
+                                    <label class="question-item__label">
+                                        <span class="question-item__title">Hardware, IoT </span>
+                                        <input type="checkbox" name="themeapp[]" value="Hardware" class="question-item__checkbox" required>
+                                        <!--<span class="question-item__subtitle">You`ve got only app concept</span>-->
+                                    </label>
+
+                                    <label class="question-item__label">
+                                        <span class="question-item__title">Ecommerce /Shoping</span>
+                                        <input type="checkbox" name="themeapp[]" value="ecommerce" class="question-item__checkbox" required>
+                                    </label>
+
+                                    <label class="question-item__label">
+                                        <span class="question-item__title">Booking</span>
+                                        <input type="checkbox" name="themeapp[]" value="Booking" class="question-item__checkbox" required>
+                                    </label>
+
+                                    <label class="question-item__label">
+                                        <span class="question-item__title">Education</span>
+                                        <input type="checkbox" name="themeapp[]" value="Education" class="question-item__checkbox" required>
+                                    </label>
+
+                                    <label class="question-item__label">
+                                        <span class="question-item__title">Social networking</span>
+                                        <input type="checkbox" name="themeapp[]" value="Social-networking" class="question-item__checkbox" required>
+                                    </label>
+
+                                    <label class="question-item__label">
+                                        <span class="question-item__title">Events</span>
+                                        <input type="checkbox" name="themeapp[]" value="Education" class="question-item__checkbox" required>
+                                    </label>
+
+
+                                    <label class="question-item__label">
+                                        <span class="question-item__title">Tools / Utilities </span>
+                                        <input type="checkbox" name="themeapp[]" value="Tools" class="question-item__checkbox" required>
+                                    </label>
+
+                                    <label class="question-item__label">
+                                        <span class="question-item__title">Medical</span>
+                                        <input type="checkbox" name="themeapp[]" value="Medical" class="question-item__checkbox" required>
+                                    </label>
+
+                                    <label class="question-item__label">
+                                        <span class="question-item__title">AI</span>
+                                        <input type="checkbox" name="themeapp[]" value="AI" class="question-item__checkbox" required>
+                                    </label>
+
+                                    <label class="question-item__label">
+                                        <span class="question-item__title">Maps & Navigation</span>
+                                        <input type="checkbox" name="themeapp[]" value="Maps" class="question-item__checkbox" required>
+                                    </label>
+
+                                    <label class="question-item__label">
+                                        <span class="question-item__title">Lifestyle & Hobby</span>
+                                        <input type="checkbox" name="themeapp[]" value="Lifestyle" class="question-item__checkbox" required>
+                                    </label>
+
+                                    <label class="question-item__label">
+                                        <span class="question-item__title">Other</span>
+                                        <input type="checkbox" name="themeapp[]" value="Other" class="question-item__checkbox" required>
+                                    </label>
+
+                                </div> <!-- /question-item -->
+
+                            </div>
+                        </div><!-- /question-row -->
+
+                        <div class="question row" data-question="design">
+
+                            <div class="col-md-4 col-xs-12  col-sm-4  col-xs-12  col-sm-4 ">
+                                <p class="question__text">What about design?</p>
+                            </div>
+
+                            <div class="col-md-8 col-sm-8 p0 col-xs-12 ">
+
+                                <div class="question-item">
+
+                                    <label class="question-item__label">
+                                        <span class="question-item__title">Basic</span>
+                                        <input type="radio" name="design" value="Hardware" class="question-item__radio" required>
+                                    </label>
+
+                                    <label class="question-item__label">
+                                        <span class="question-item__title">Polished</span>
+                                        <input type="radio" name="design" value="Polished" class="question-item__radio" required>
+                                    </label>
+
+                                    <label class="question-item__label">
+                                        <span class="question-item__title">I already have  </span>
+                                        <input type="radio" name="design" value="have-design" class="question-item__radio" required>
+                                    </label>
+
+                                </div> <!-- /question-item -->
+
+                            </div>
+                        </div><!-- /question-row -->
+
+                        <div class="question row" data-question="design">
+
+                            <div class="col-md-4 col-xs-12  col-sm-4  col-xs-12  col-sm-4 ">
+                                <p class="question__text">Choose devices for your app</p>
+                            </div>
+
+                            <div class="col-md-8 col-sm-8 p0 col-xs-12 ">
+
+                                <div class="question-item">
+
+                                    <label class="question-item__label">
+                                        <span class="question-item__title">Smartphones</span>
+                                        <input type="checkbox" name="devices[]" value="Smartphones" class="question-item__checkbox" required>
+                                    </label>
+
+                                    <label class="question-item__label">
+                                        <span class="question-item__title">Tablets</span>
+                                        <input type="checkbox" name="devices[]" value="Tablets" class="question-item__checkbox" required>
+                                    </label>
+
+                                    <label class="question-item__label">
+                                        <span class="question-item__title">Watch</span>
+                                        <input type="checkbox" name="devices[]" value="Watch" class="question-item__checkbox" required>
+                                    </label>
+                                    <label class="question-item__label">
+                                        <span class="question-item__title">Desktop</span>
+                                        <input type="checkbox" name="devices[]" value="Desktop" class="question-item__checkbox" required>
+                                    </label>
+
+                                </div> <!-- /question-item -->
+
+                            </div>
+                        </div><!-- /question-row -->
+
+                        <div class="question row" data-question="features">
+
+                            <div class="col-md-4 col-xs-12  col-sm-4  col-xs-12  col-sm-4 ">
+                                <p class="question__text">Do users have to login?</p>
+                            </div>
+
+                            <div class="col-md-8 col-sm-8 p0 col-xs-12 ">
+
+                                <div class="question-item">
+
+                                    <label class="question-item__label">
+                                        <span class="question-item__title">via E-mail</span>
+                                        <input type="checkbox" name="login[]" value="via-email" class="question-item__checkbox" required>
+                                    </label>
+
+                                    <label class="question-item__label">
+                                        <span class="question-item__title">via Social</span>
+                                        <input type="checkbox" name="login[]" value="via-social" class="question-item__checkbox" required>
+                                    </label>
+
+                                    <label class="question-item__label">
+                                        <span class="question-item__title">None</span>
+                                        <input type="checkbox" name="login[]" value="None" class="question-item__checkbox" required>
+                                    </label>
+
+                                </div> <!-- /question-item -->
+
+                            </div>
+                        </div><!-- /question-row -->
+
+                        <div class="question row" data-question="features">
+
+                            <div class="col-md-4 col-xs-12  col-sm-4 ">
+                                <p class="question__text">Do you need inbuilt payments?</p>
+                            </div>
+
+                            <div class="col-md-8 col-sm-8 p0 col-xs-12 ">
+
+                                <div class="question-item">
+
+                                    <label class="question-item__label">
+                                        <span class="question-item__title">Payment processing</span>
+                                        <input type="radio" name="payment" value="payment-processing" class="question-item__radio" required>
+                                    </label>
+
+                                    <label class="question-item__label">
+                                        <span class="question-item__title">In-App Purchasing</span>
+                                        <input type="radio" name="payment" value="in-app" class="question-item__radio" required>
+                                        <span class="question-item__subtitle"> Sales directly from an app </span>
+
+                                    </label>
+
+                                    <label class="question-item__label">
+                                        <span class="question-item__title">None</span>
+                                        <input type="radio" name="payments" value="None" class="question-item__radio" required>
+                                    </label>
+
+                                </div> <!-- /question-item -->
+
+                            </div>
+                        </div><!-- /question-row -->
+
+                        <div class="question row" data-question="features">
+
+                            <div class="col-md-4 col-xs-12  col-sm-4 ">
+                                <p class="question__text">Do you need geolocation feature?</p>
+                            </div>
+
+                            <div class="col-md-8 col-sm-8 p0 col-xs-12 ">
+
+                                <div class="question-item">
+
+                                    <label class="question-item__label">
+                                        <span class="question-item__title">Simple</span>
+                                        <input type="radio" name="geolocation-feature" value="simple" class="question-item__radio" required>
+                                        <span class="question-item__subtitle">A map with data points</span>
+
+                                    </label>
+
+                                    <label class="question-item__label">
+                                        <span class="question-item__title">Advanced</span>
+                                        <input type="radio" name="geolocation-feature" value="advanced" class="question-item__radio" required>
+                                        <span class="question-item__subtitle">Display of custom map markers</span>
+                                    </label>
+
+                                    <label class="question-item__label">
+                                        <span class="question-item__title">None</span>
+                                        <input type="radio" name="geolocation-feature" value="None" class="question-item__radio" required>
+                                    </label>
+
+                                </div> <!-- /question-item -->
+                            </div>
+                        </div><!-- /question-row -->
+
+                        <div class="question row" data-question="features">
+
+                            <div class="col-md-4 col-xs-12  col-sm-4 ">
+                                <p class="question__text">Will you have a newsfeed?</p>
+                            </div>
+
+                            <div class="col-md-8 col-sm-8 p0 col-xs-12 ">
+
+                                <div class="question-item">
+
+                                    <label class="question-item__label">
+                                        <span class="question-item__title">Simple</span>
+                                        <input type="radio" name="newsfeed" value="simple" class="question-item__radio" required>
+                                        <span class="question-item__subtitle">Only the feed from your app</span>
+
+                                    </label>
+
+                                    <label class="question-item__label">
+                                        <span class="question-item__title">Custom</span>
+                                        <input type="radio" name="newsfeed" value="custom" class="question-item__radio" required>
+                                        <span class="question-item__subtitle">Feed from 3rd party resources</span>
+                                    </label>
+
+                                    <label class="question-item__label">
+                                        <span class="question-item__title">None</span>
+                                        <input type="radio" name="newsfeed" value="None" class="question-item__radio" required>
+                                    </label>
+
+                                </div> <!-- /question-item -->
+                            </div>
+                        </div><!-- /question-row -->
+
+                        <div class="question row" data-question="features">
+
+                            <div class="col-md-4 col-xs-12  col-sm-4 ">
+                                <p class="question__text">Will you have any lists?</p>
+                            </div>
+
+                            <div class="col-md-8 col-sm-8 p0 col-xs-12 ">
+
+                                <div class="question-item">
+
+                                    <label class="question-item__label">
+                                        <span class="question-item__title">Simple</span>
+                                        <input type="radio" name="lists" value="simple" class="question-item__radio" required>
+                                        <span class="question-item__subtitle">Just a list of content</span>
+
+                                    </label>
+
+                                    <label class="question-item__label">
+                                        <span class="question-item__title">Advanced</span>
+                                        <input type="radio" name="lists" value="advanced" class="question-item__radio" required>
+                                        <span class="question-item__subtitle">Lists, filters & search</span>
+                                    </label>
+
+                                    <label class="question-item__label">
+                                        <span class="question-item__title">None</span>
+                                        <input type="radio" name="lists" value="None" class="question-item__radio" required>
+                                    </label>
+
+                                </div> <!-- /question-item -->
+                            </div>
+                        </div><!-- /question-row -->
+
+                        <div class="question row" data-question="features">
+
+                            <div class="col-md-4 col-xs-12  col-sm-4 ">
+                                <p class="question__text">Need user managing tool?</p>
+                            </div>
+
+                            <div class="col-md-8 col-sm-8 p0 col-xs-12 ">
+
+                                <div class="question-item">
+
+                                    <label class="question-item__label">
+                                        <span class="question-item__title">Basic</span>
+                                        <input type="radio" name="managing-tool" value="basic" class="question-item__radio" required>
+                                        <span class="question-item__subtitle">Contact list only</span>
+
+                                    </label>
+
+                                    <label class="question-item__label">
+                                        <span class="question-item__title">Custom</span>
+                                        <input type="radio" name="managing-tool" value="custom" class="question-item__radio" required>
+                                        <span class="question-item__subtitle">Management tools</span>
+                                    </label>
+
+                                    <label class="question-item__label">
+                                        <span class="question-item__title">No</span>
+                                        <input type="radio" name="managing-tool" value="no" class="question-item__radio" required>
+                                    </label>
+
+                                </div> <!-- /question-item -->
+                            </div>
+                        </div><!-- /question-row -->
+
+                        <div class="question row" data-question="features">
+
+                            <div class="col-md-4 col-xs-12  col-sm-4 ">
+                                <p class="question__text">Do you need in-app messenger?</p>
+                            </div>
+
+                            <div class="col-md-8 col-sm-8 p0 col-xs-12 ">
+
+                                <div class="question-item">
+
+                                    <label class="question-item__label">
+                                        <span class="question-item__title">Direct messaging</span>
+                                        <input type="radio" name="in-app-messenger" value="direct-messaging" class="question-item__radio" required>
+                                    </label>
+
+                                    <label class="question-item__label">
+                                        <span class="question-item__title">Direct & Group Messaging</span>
+                                        <input type="radio" name="in-app-messenger" value="direct-group-messaging" class="question-item__radio" required>
+                                    </label>
+
+                                    <label class="question-item__label">
+                                        <span class="question-item__title">No</span>
+                                        <input type="radio" name="in-app-messenger" value="no" class="question-item__radio" required>
+                                    </label>
+
+                                </div> <!-- /question-item -->
+                            </div>
+                        </div><!-- /question-row -->
+
+                        <div class="question row" data-question="features">
+
+                            <div class="col-md-4 col-xs-12  col-sm-4 ">
+                                <p class="question__text">Any event-planning tools?</p>
+                            </div>
+
+                            <div class="col-md-8 col-sm-8 p0 col-xs-12 ">
+
+                                <div class="question-item">
+
+                                    <label class="question-item__label">
+                                        <span class="question-item__title">Calendar</span>
+                                        <input type="checkbox" name="event-planning-tool[]" value="calendar" class="question-item__checkbox" required>
+                                        <span class="question-item__subtitle">Display data in calendar format</span>
+                                    </label>
+
+                                    <label class="question-item__label">
+                                        <span class="question-item__title">Booking</span>
+                                        <input type="checkbox" name="event-planning-tool[]" value="booking" class="question-item__checkbox" required>
+                                        <span class="question-item__subtitle">Tickets management</span>
+                                    </label>
+
+                                    <label class="question-item__label">
+                                        <span class="question-item__title">Appointments</span>
+                                        <input type="checkbox" name="event-planning-tool[]" value="appointments" class="question-item__checkbox" required>
+                                        <span class="question-item__subtitle">Appointments scheduling</span>
+                                    </label>
+
+                                    <label class="question-item__label">
+                                        <span class="question-item__title">None</span>
+                                        <input type="checkbox" name="event-planning-tool[]" value="none" class="question-item__checkbox" required>
+                                    </label>
+
+                                </div> <!-- /question-item -->
+                            </div>
+                        </div><!-- /question-row -->
+
+                        <div class="question row" data-question="features">
+
+                            <div class="col-md-4 col-xs-12  col-sm-4 ">
+                                <p class="question__text">Choose the type of content?</p>
+                            </div>
+
+                            <div class="col-md-8 col-sm-8 p0 col-xs-12 ">
+
+                                <div class="question-item">
+
+                                    <label class="question-item__label">
+                                        <span class="question-item__title">Photo</span>
+                                        <input type="checkbox" name="content[]" value="photo" class="question-item__checkbox" required>
+                                    </label>
+
+                                    <label class="question-item__label">
+                                        <span class="question-item__title">Video / Audio</span>
+                                        <input type="checkbox" name="content[]" value="video-audio" class="question-item__checkbox" required>
+                                    </label>
+
+                                    <label class="question-item__label">
+                                        <span class="question-item__title">Streaming</span>
+                                        <input type="radio" name="content[]" value="streaming" class="question-item__checkbox" required>
+                                    </label>
+
+                                    <label class="question-item__label">
+                                        <span class="question-item__title">None</span>
+                                        <input type="checkbox" name="content[]" value="none" class="question-item__checkbox" required>
+                                    </label>
+
+                                </div> <!-- /question-item -->
+                            </div>
+                        </div><!-- /question-row -->
+
+                        <div class="question row" data-question="features">
+
+                            <div class="col-md-4 col-xs-12  col-sm-4 ">
+                                <p class="question__text">How will you engage with your users?</p>
+                            </div>
+
+                            <div class="col-md-8 col-sm-8 p0 col-xs-12 ">
+
+                                <div class="question-item">
+
+                                    <label class="question-item__label">
+                                        <span class="question-item__title">Ratings</span>
+                                        <input type="checkbox" name="engage-user" value="ratings" class="question-item__checkbox" required>
+                                        <span class="question-item__subtitle">Leaving reviews and ratings</span>
+                                    </label>
+
+                                    <label class="question-item__label">
+                                        <span class="question-item__title">Forms / Polls</span>
+                                        <input type="checkbox" name="engage-user" value="forms" class="question-item__checkbox" required>
+                                        <span class="question-item__subtitle">Gathering info</span>
+                                    </label>
+
+                                    <label class="question-item__label">
+                                        <span class="question-item__title">None</span>
+                                        <input type="checkbox" name="engage-user" value="none" class="question-item__checkbox" required>
+                                    </label>
+
+                                </div> <!-- /question-item -->
+                            </div>
+                        </div><!-- /question-row -->
+
+                        <div class="question row" data-question="features">
+
+                            <div class="col-md-4 col-xs-12  col-sm-4 ">
+                                <p class="question__text">Do you need push notifications?</p>
+                            </div>
+
+                            <div class="col-md-8 col-sm-8 p0 col-xs-12 ">
+
+                                <div class="question-item">
+
+                                    <label class="question-item__label">
+                                        <span class="question-item__title">Basic</span>
+                                        <input type="radio" name="push-notification" value="basic" class="question-item__radio" required>
+                                        <span class="question-item__subtitle">Simple  messages</span>
+                                    </label>
+
+                                    <label class="question-item__label">
+                                        <span class="question-item__title">Custom</span>
+                                        <input type="radio" name="push-notification" value="custom" class="question-item__radio" required>
+                                        <span class="question-item__subtitle">Notifications with management</span>
+                                    </label>
+
+                                    <label class="question-item__label">
+                                        <span class="question-item__title">No</span>
+                                        <input type="radio" name="push-notification" value="no" class="question-item__radio" required>
+                                    </label>
+
+                                </div> <!-- /question-item -->
+                            </div>
+                        </div><!-- /question-row -->
+
+                        <div class="question row" data-question="features">
+
+                            <div class="col-md-4 col-xs-12  col-sm-4 ">
+                                <p class="question__text">What kind of analytics data will you track?</p>
+                            </div>
+
+                            <div class="col-md-8 col-sm-8 p0 col-xs-12 ">
+
+                                <div class="question-item">
+
+                                    <label class="question-item__label">
+                                        <span class="question-item__title">Basic</span>
+                                        <input type="radio" name="analytics-type" value="basic" class="question-item__radio" required>
+                                    </label>
+
+                                    <label class="question-item__label">
+                                        <span class="question-item__title">Advanced</span>
+                                        <input type="radio" name="analytics-type" value="advanced" class="question-item__radio" required>
+                                        <span class="question-item__subtitle">Integration with 3rd party analytics</span>
+                                    </label>
+
+                                    <label class="question-item__label">
+                                        <span class="question-item__title">None</span>
+                                        <input type="radio" name="analytics-type" value="none" class="question-item__radio" required>
+                                    </label>
+
+                                </div> <!-- /question-item -->
+                            </div>
+                        </div><!-- /question-row -->
+                        <div class="question row" data-question="features">
+
+                            <div class="col-md-4 col-xs-12  col-sm-4 ">
+                                <p class="question__text">Do you need an admin panel?</p>
+                            </div>
+
+                            <div class="col-md-8 col-sm-8 p0 col-xs-12 ">
+
+                                <div class="question-item">
+
+                                    <label class="question-item__label">
+                                        <span class="question-item__title">Yes</span>
+                                        <input type="radio" name="admin-panel" value="admin-panel-yes" class="question-item__radio" required>
+                                    </label>
+
+                                    <label class="question-item__label">
+                                        <span class="question-item__title">No</span>
+                                        <input type="radio" name="admin-panel" value="none" class="question-item__radio" required>
+                                    </label>
+
+                                </div> <!-- /question-item -->
+                            </div>
+                        </div><!-- /question-row -->
+                    </div>
+
+                </div><!-- /question-list -->
+
+            </form>
+        </section><!-- /calculator -->
+
+        <section class="get-details" data-question="estimate">
+
+            <div class="container">
+                <div class="get-details__img"></div>
+
+                <div class="col-md-7 col-md-offset-4 get-details__contenttxt">
+                    <h3 class="get-details__title">We are almost there!</h3>
+                    <p class="get-details__subtitle">Thanks for providing details. Here is the approximate cost for the development your future app
+                        according to our self-estimation tool. Get more details to start the project.</p>
+                    <p class="final-coast">$24 000</p>
+                    <button class="btn btn--getdetails">Get details!</button>
+                </div>
+            </div>
+
+        </section>
+
+
+
+        <section class="contactus" data-question="contactform">
+
+            <div class="container">
+
+                <h3 class="contactus__title"> Almost Done! </h3>
+                <p class="contactus__subtitle">Let us know where we should send your complete request for proposal </p>
+
+                    <div class="contactus__form">
+                        <form id="contactus" name="contactus">
+                            <div class="contactus__label">
+                                <input type="text" id="name" name="name" placeholder="Name" required  minlength="1" maxlength="40" class="contactus__input">
+                            </div>
+                            <div class="contactus__label">
+                                <input type="text" id="phone" name="phone" placeholder="" required class="contactus__input">
+
+                                <span class="error-msg hide">invalid number</span>
+                            </div>
+                            <div class="contactus__label">
+                                <input type="email" id="email" name="email" placeholder="Email" required class="contactus__input">
+                            </div>
+                            <div class="contactus__label">
+                                <textarea id="additional_information" class="contactus__textarea" value=""  name="phone">Provide us with some information about your project *</textarea>
+                            </div>
+                            <div class="contactus__label">
+                                <button class="btn btn--submit">Submit</button>
+                            </div>
+                        </form>
+                    </div>
+            </div>
+
+        </section>
+
+        <footer class="footer">
+
+            <nav class="footer-nav">
+                <ul>
+                    <li class="footer-nav__item">
+                        <a class="footer-nav__href" target="_blank" href="http://theappsolutions.com/"> home</a>
+                    </li>
+                    <li class="footer-nav__item">
+                        <a class="footer-nav__href" target="_blank" href="http://theappsolutions.com/portfolio/"> portfolio </a>
+                    </li>
+                    <li class="footer-nav__item">
+                        <a class="footer-nav__href" target="_blank" href="#"> TErms and Conditions </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <p class="footer__terms">©2016 THEAPPSOLUTIONS. ALL RIGHTS RESERVED</p>
+
+        </footer>
+
+    </div> <!-- /wrap-calculator -->
+
+
+
+    <script   src="https://code.jquery.com/jquery-1.12.4.min.js"   integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="   crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="./public/js/vendor/jquery-1.12.0.min.js"><\/script>')</script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/ScrollMagic.min.js"></script>
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.0/TweenLite.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.0/TweenMax.min.js"></script>
+    <!--<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/easing/EasePack.min.js"></script>-->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.0/plugins/CSSPlugin.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/ScrollMagic.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/animation.gsap.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.15.0/jquery.validate.min.js
+"></script>
+
+    <script src="./public/js/intlTelInput.min.js"></script>
+    <script src="./public/js/main.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,53 @@
+//fonts
+@import url('https://fonts.googleapis.com/css?family=Poppins:300,400,700|Roboto:300,400,700');
+
+//mixin
+@mixin box-shadow($top, $left, $blur, $size, $color, $inset: false) {
+  @if $inset {
+    -webkit-box-shadow:inset $top $left $blur $size $color;
+    -moz-box-shadow:inset $top $left $blur $size $color;
+    box-shadow:inset $top $left $blur $size $color;
+  } @else {
+    -webkit-box-shadow: $top $left $blur $size $color;
+    -moz-box-shadow: $top $left $blur $size $color;
+    box-shadow: $top $left $blur $size $color;
+  }
+}
+@mixin transition($transition...) {
+  -webkit-transition: $transition;
+  -o-transition: $transition;
+  transition: $transition;
+}
+// Variables
+// --------------------------------------------------
+$main-bg: #f2f2f3;
+$white: #fff;
+$default-color: #383838;
+$default-h-color:  #262626;
+$subtitle-color: #818792;
+$light-gray: #f2f2f3;
+$coral: #ed706f;
+$btn-coral: #ed706f;
+$coral-price: #f7706f;
+$green:  #23cfa6;
+/*btn*/
+
+$btn-details: rgba(0, 0, 0, 0.8);
+
+
+/* forms */
+$placeholder-txt: #878d90;
+$defaul-txt-form:  #5d5d5d;
+$bg-inputs-form: #fff;
+
+//trasition
+$gTransition: all .3s ease;
+$gTransitionLinear: all .2s linear;
+
+//fonts
+$fontDefault: "Poppins", sans-serif;
+$fontRoboto: 'Roboto', sans-serif;
+
+
+
+
