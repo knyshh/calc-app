@@ -7,5 +7,6 @@
             }, 1000);
         }
     }
+
     module.exports  = scrollTo;
 

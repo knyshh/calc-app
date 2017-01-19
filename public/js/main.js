@@ -10,7 +10,6 @@ var setActiveSection = require("./module/asideNavigation.js");
     setAnimations.setAnimationMain();
 
     $( window ).resize(function() {
-        console.log('resize');
         setAnimations.setAnimationMain();
     });
 
@@ -39,7 +38,6 @@ var setActiveSection = require("./module/asideNavigation.js");
     });
 
 
-
     //set validation
     jQuery.validator.addMethod("validEmail", function(value, element)
     {
@@ -61,12 +59,38 @@ var setActiveSection = require("./module/asideNavigation.js");
         return temp1;
     }, "Please enter valid email.");
 
-    $("#contactus").validate({
+    $("#calcAppForm").validate({
         rules: {
             field: {
                 required: true,
                 validEmail: true
             }
+        },
+        submitHandler: function(form) {
+            $.ajax({
+                type: 'POST',
+                //url: $(form).attr('path'),
+                data: $("#calcAppForm").serialize(),
+                dataType: 'json',
+                cache: false,
+                success: function (msg) {
+                    if (msg.status) {
+                        if (msg.status === 'fail') {
+                            //$('#ok-popup .popup-content').text('').append('Sorry, something has going wrong');
+                            console.log('Oops, something went wrong.Please, refresh your page and try again.');
+                        }
+                        else if (msg.status === 'ok') {
+                            console.log('Success');
+                            //$('.btn-send-planner').attr('disabled','disabled');
+                        }
+                    }
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    alert(xhr.status);
+                    alert(thrownError);
+                }
+            });
+
         }
     });
 
@@ -247,6 +271,7 @@ module.exports  = {navigatoToSection , setActiveSection};
         autoPlaceholder: true,
         allowExtensions: false,
         nationalMode: false,
+        initialCountry: 'auto',
         geoIpLookup: function(callback) {
             $.get('http://ipinfo.io', function() {}, "jsonp").always(function(resp) {
                 var countryCode = (resp && resp.country) ? resp.country : "";
@@ -263,13 +288,11 @@ module.exports  = {navigatoToSection , setActiveSection};
             if ($.trim($(this).val())) {
                
                 if ($(this).intlTelInput("isValidNumber")) {
-                    console.log('yes');
                     btnCall.removeAttr("disabled");
                     errorMsg.addClass("hide");
                     return true;
                 }
                 else {
-                    console.log('no');
                     $(this).addClass("error");
                     btnCall.attr('disabled','disabled');
                     errorMsg.removeClass("hide");
@@ -277,9 +300,6 @@ module.exports  = {navigatoToSection , setActiveSection};
                 }
             }
         });
-
-
-
 
     })();
 },{}],5:[function(require,module,exports){
@@ -292,6 +312,7 @@ module.exports  = {navigatoToSection , setActiveSection};
             }, 1000);
         }
     }
+
     module.exports  = scrollTo;
 
 
@@ -302,8 +323,10 @@ module.exports  = {navigatoToSection , setActiveSection};
             $(this).closest('.question-item').find('.question-item__label').removeClass('active');
             if ( $(this).closest('.question-item__label').hasClass("active")) {
                 $(this).closest('.question-item__label').removeClass("active");
+                $(this).closest('.question-item').removeClass("valid");
             } else {
                 $(this).closest('.question-item__label').addClass("active");
+                $(this).closest('.question-item').addClass("valid");
             }
         });
     }
@@ -311,6 +334,7 @@ module.exports  = {navigatoToSection , setActiveSection};
     function setActiveStateCheckbox(area) {
         $(area).on('click', function() {
             $(this).closest('.question-item__label').toggleClass("active");
+            $(this).closest('.question-item').toggleClass("validcheck");
         });
     }
 

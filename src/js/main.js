@@ -9,7 +9,6 @@ var setActiveSection = require("./module/asideNavigation.js");
     setAnimations.setAnimationMain();
 
     $( window ).resize(function() {
-        console.log('resize');
         setAnimations.setAnimationMain();
     });
 
@@ -38,7 +37,6 @@ var setActiveSection = require("./module/asideNavigation.js");
     });
 
 
-
     //set validation
     jQuery.validator.addMethod("validEmail", function(value, element)
     {
@@ -60,12 +58,38 @@ var setActiveSection = require("./module/asideNavigation.js");
         return temp1;
     }, "Please enter valid email.");
 
-    $("#contactus").validate({
+    $("#calcAppForm").validate({
         rules: {
             field: {
                 required: true,
                 validEmail: true
             }
+        },
+        submitHandler: function(form) {
+            $.ajax({
+                type: 'POST',
+                //url: $(form).attr('path'),
+                data: $("#calcAppForm").serialize(),
+                dataType: 'json',
+                cache: false,
+                success: function (msg) {
+                    if (msg.status) {
+                        if (msg.status === 'fail') {
+                            //$('#ok-popup .popup-content').text('').append('Sorry, something has going wrong');
+                            console.log('Oops, something went wrong.Please, refresh your page and try again.');
+                        }
+                        else if (msg.status === 'ok') {
+                            console.log('Success');
+                            //$('.btn-send-planner').attr('disabled','disabled');
+                        }
+                    }
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    alert(xhr.status);
+                    alert(thrownError);
+                }
+            });
+
         }
     });
 

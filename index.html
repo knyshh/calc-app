@@ -88,6 +88,9 @@
             </ul>
         </nav>
 
+        <form role="form" id="calcAppForm" name="form"  method="post" path="#" >
+            <!--path="{{ path('api.planner.submit') }}"-->
+
         <section class="calculator">
             <div class="container calculator__containertxt">
                 <div class="col-md-6 col-md-offset-2">
@@ -95,10 +98,6 @@
                     <p class="calculator__subtitle">Answer the questionnaire to estimate the app idea, see the price of your future app and get started with the development.</p>
                 </div>
             </div>
-            <form role="form" id="form"
-                  name="form"
-                  method="post">
-                  <!--path="{{ path('api.planner.submit') }}"-->
 
                 <div class="question-list">
 
@@ -329,7 +328,7 @@
 
                                     <label class="question-item__label">
                                         <span class="question-item__title">None</span>
-                                        <input type="radio" name="payments" value="None" class="question-item__radio" required>
+                                        <input type="radio" name="payment" value="None" class="question-item__radio" required>
                                     </label>
 
                                 </div> <!-- /question-item -->
@@ -683,7 +682,6 @@
 
                 </div><!-- /question-list -->
 
-            </form>
         </section><!-- /calculator -->
 
         <section class="get-details" data-question="estimate">
@@ -712,7 +710,7 @@
                 <p class="contactus__subtitle">Let us know where we should send your complete request for proposal </p>
 
                     <div class="contactus__form">
-                        <form id="contactus" name="contactus">
+
                             <div class="contactus__label">
                                 <input type="text" id="name" name="name" placeholder="Name" required  minlength="1" maxlength="40" class="contactus__input">
                             </div>
@@ -728,13 +726,20 @@
                                 <textarea id="additional_information" class="contactus__textarea" value=""  name="phone">Provide us with some information about your project *</textarea>
                             </div>
                             <div class="contactus__label">
-                                <button class="btn btn--submit">Submit</button>
+                                <button class="btn btn--submit js-submit">Submit</button>
                             </div>
-                        </form>
+
+                        <span class="has-error js-error">Your app estimation is almost ready! <br>
+                            To complete the process and find out the approximate price of your application, please, fill in all the fields. Thanks.</span>
+
+                        <span class="message js-done-msg">Your app estimation is ready! <br>
+                                Check out your email. There you will find the extended version of your estimate.</span>
                     </div>
             </div>
 
         </section>
+
+        </form>
 
         <footer class="footer">
 

@@ -823,6 +823,11 @@ label.error,
   font-size: 11px;
   font-family: "Poppins", sans-serif; }
 
+.question-item label.error,
+.question-item .error-msg {
+  left: 15px;
+  top: 104%; }
+
 .iti-flag {
   background-image: url("http://frontendgirl.com.ua/calculator-app/public/img/flags.png"); }
 
@@ -891,7 +896,8 @@ label.error,
 .wrap-calculator .footer,
 .wrap-calculator .logo-sticky,
 .wrap-calculator .coast--sticky,
-.wrap-calculator .aside-navigation {
+.wrap-calculator .aside-navigation,
+.wrap-calculator .section-name {
   display: none; }
 
 .wrap-calculator.is-active .loader__line-top,
@@ -912,6 +918,7 @@ label.error,
 .wrap-calculator.is-active .loader__line-right,
 .wrap-calculator.is-active .loader__line-left,
 .wrap-calculator.is-active .loader__sticker,
+.wrap-calculator.is-active .section-name,
 .wrap-calculator.is-active .aside-navigation {
   display: block; }
 
@@ -922,6 +929,10 @@ label.error,
   .wrap-calculator.is-active .loader__line-bottom,
   .wrap-calculator.is-active .section-name,
   .wrap-calculator.is-active .aside-navigation {
+    display: none; } }
+
+@media only screen and (max-width: 1023px) {
+  .wrap-calculator .section-name.fade-in-x {
     display: none; } }
 
 .footer-text, .footer__terms, .footer-nav__href {
@@ -1041,5 +1052,18 @@ label.error,
 .fade-in-x {
   opacity: 1;
   transform: translateX(0) rotate(-90deg); }
+
+.has-error {
+  width: 100%;
+  display: inline-block;
+  color: #ed706f;
+  font-family: "Poppins", sans-serif;
+  display: none; }
+
+.message {
+  width: 100%;
+  display: inline-block;
+  font-family: "Poppins", sans-serif;
+  display: none; }
 
 /*--- footer ------------------------------------------------------------------ */

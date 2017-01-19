@@ -605,6 +605,14 @@ label.error,
   font-family: "Poppins", sans-serif;
 
 }
+.question-item {
+  label.error,
+  .error-msg {
+    left: 15px;
+    top: 104%;
+  }
+}
+
 
 .iti-flag {background-image: url("http://frontendgirl.com.ua/calculator-app/public/img/flags.png")}
 .intl-tel-input {
@@ -677,7 +685,8 @@ label.error,
   .footer,
   .logo-sticky,
   .coast--sticky,
-  .aside-navigation {
+  .aside-navigation,
+  .section-name{
     display: none;
   }
   &.is-active {
@@ -704,6 +713,7 @@ label.error,
     .loader__line-right ,
     .loader__line-left,
     .loader__sticker,
+    .section-name,
     .aside-navigation{
       display: block;
      // display: none;
@@ -722,6 +732,11 @@ label.error,
       }
     }
   }
+  @media only screen and (max-width: 1023px) {
+    .section-name.fade-in-x {
+      display: none;
+    }
+  }
 
 
 }
@@ -733,7 +748,6 @@ label.error,
 }
 .footer {
   width: 100%;
-
   bottom: 0;
 
   background: transparent;
@@ -875,6 +889,19 @@ label.error,
 .fade-in-x {
   opacity: 1;
   transform: translateX(0) rotate(-90deg);
+}
+.has-error {
+  width: 100%;
+  display: inline-block;
+  color: #ed706f;
+  font-family: "Poppins", sans-serif;
+  display: none;
+}
+.message {
+  width: 100%;
+  display: inline-block;
+  font-family: "Poppins", sans-serif;
+  display: none;
 }
 /*--- footer ------------------------------------------------------------------ */
 @media only screen and (max-width: 1170px) {

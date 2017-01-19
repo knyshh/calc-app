@@ -9,6 +9,7 @@
         autoPlaceholder: true,
         allowExtensions: false,
         nationalMode: false,
+        initialCountry: 'auto',
         geoIpLookup: function(callback) {
             $.get('http://ipinfo.io', function() {}, "jsonp").always(function(resp) {
                 var countryCode = (resp && resp.country) ? resp.country : "";
@@ -25,13 +26,11 @@
             if ($.trim($(this).val())) {
                
                 if ($(this).intlTelInput("isValidNumber")) {
-                    console.log('yes');
                     btnCall.removeAttr("disabled");
                     errorMsg.addClass("hide");
                     return true;
                 }
                 else {
-                    console.log('no');
                     $(this).addClass("error");
                     btnCall.attr('disabled','disabled');
                     errorMsg.removeClass("hide");
@@ -39,8 +38,5 @@
                 }
             }
         });
-
-
-
 
     })();
