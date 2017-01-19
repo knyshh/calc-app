@@ -7,7 +7,7 @@ var concat = require('gulp-concat');
 const image = require('gulp-image');
 
 
-var sourceJsFiles = [ 'src/js/plugins/intlTelInput.min.js' ];
+var sourceJsFiles = [ 'src/js/plugins/intlTelInput.min.js','src/js/plugins/utils.js'  ];
 var destinationJs = './public/js';
 
 var sourceCssFiles = [ 'src/css/intlTelInput.css','src/css/bootstrap.css' ];
