@@ -59,6 +59,19 @@ var setActiveSection = require("./module/asideNavigation.js");
     }, "Please enter valid email.");
 
     $("#calcAppForm").validate({
+        focusInvalid: false,
+        invalidHandler: function(form, validator) {
+            if (!validator.numberOfInvalids())
+                return;
+
+            $('html, body').animate({
+                scrollTop: $(validator.errorList[0].element).offset().top - 200
+            }, 2000);
+
+            $(validator.errorList[0].element).focus();
+            $(validator.errorList[0].element).closest('.question').addClass('first-invalid');
+
+        },
         rules: {
             field: {
                 required: true,

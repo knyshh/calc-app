@@ -605,15 +605,24 @@ label.error,
   font-family: "Poppins", sans-serif;
 
 }
+
 .question-item {
   label.error,
   .error-msg {
-    left: 15px;
+    font-size: 12px;
+    left: -302px; //add mobile
     top: 104%;
   }
 }
-
-
+label.error {
+  opacity: 0;
+}
+.first-invalid label.error {
+  opacity: 1;
+}
+//label.error:first-child {
+//  opacity: 1;
+//}
 .iti-flag {background-image: url("http://frontendgirl.com.ua/calculator-app/public/img/flags.png")}
 .intl-tel-input {
   width: 100%;

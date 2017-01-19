@@ -825,8 +825,15 @@ label.error,
 
 .question-item label.error,
 .question-item .error-msg {
-  left: 15px;
+  font-size: 12px;
+  left: -302px;
   top: 104%; }
+
+label.error {
+  opacity: 0; }
+
+.first-invalid label.error {
+  opacity: 1; }
 
 .iti-flag {
   background-image: url("http://frontendgirl.com.ua/calculator-app/public/img/flags.png"); }
